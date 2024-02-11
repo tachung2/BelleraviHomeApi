@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/news.css}">
+    <title>Dashboard</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+<div class="sidebar">
+    <img th:src="@{/img/mainlogo.png}" />
+    <div class="name" th:text="${username}"></div>
+    <a th:href="@{/dashboard}" class="side_item">Home</a>
+    <a th:href="@{/dashboard/news}" class="side_item active">News</a>
+    <a th:href="@{/dashboard/product}" class="side_item">Product</a>
+</div>
+<div class="main">
+    <div class="main-container">
+        <div class="news_container">
+            <div class="news-box" th:each="news : ${newsList}">
+                <a th:href="@{/manage/news-edit/{newsId}(newsId=${news.id})}">
+                    <img th:src="${news.imgPath}" alt="News Image" />
+                    <div class="news-tag" th:text="${news.tag}"></div>
+                    <div class="news-title" th:text="${news.title}"></div>
+                    <p th:text="${news.date}"></p>
+                </a>
+            </div>
+        </div>
+        <a th:href="@{/manage/news-create}" class="news_create_btn">글 쓰기</a>
+    </div>
+</div>
+</body>
+</html>

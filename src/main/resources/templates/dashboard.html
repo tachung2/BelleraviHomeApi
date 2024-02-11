@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="sidebar">
+        <img th:src="@{/img/mainlogo.png}" />
+        <div class="name" th:text="${username}"></div>
+        <a th:href="@{/dashboard}" class="side_item active">Home</a>
+        <a th:href="@{/dashboard/news}" class="side_item">News</a>
+        <a th:href="@{/dashboard/product}" class="side_item">Product</a>
+    </div>
+    <div class="main">
+
+    </div>
+</body>
+</html>
