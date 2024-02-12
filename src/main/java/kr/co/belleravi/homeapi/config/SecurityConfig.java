@@ -23,6 +23,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("css/**", "img/**","/js/**","/login", "/register", "/loginProc", "/registerProc", "/api/**").permitAll()
+                        ..cors().disable()
                         .requestMatchers("/", "/manage/**","/dashboard", "/dashboard/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 );
