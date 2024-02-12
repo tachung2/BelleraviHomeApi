@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class NewsApiController {
     @Autowired
     private NewsService newsService;
