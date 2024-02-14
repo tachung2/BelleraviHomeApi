@@ -73,13 +73,16 @@
       form.submit();
     }
   }
-    var quill = new Quill('#editor-container', {
-        theme: 'snow'
-    });
+  var quill = new Quill('#editor-container', {
+      theme: 'snow'
+  });
 
-    function submitContent() {
-        var content = quill.root.innerHTML;
-    }
+  var previousContent = `${product.content}`
+  quill.root.innerHTML = previousContent;
+
+  function submitContent() {
+      var content = quill.root.innerHTML;
+  }
 </script>
 </body>
 </html>
